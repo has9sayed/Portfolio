@@ -121,12 +121,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')  # Updated to match the new folder name
+    os.path.join(BASE_DIR, 'mywebsite/static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
 
-# Simplified static file serving
+# Make sure whitenoise is configured
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
@@ -154,12 +154,12 @@ MIDDLEWARE = [
 
 # Static files configuration
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'mywebsite/static')
 ]
 
-# Add Whitenoise Storage
+# Make sure whitenoise is configured
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Add CSRF settings
