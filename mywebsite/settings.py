@@ -28,7 +28,7 @@ DEBUG = 'RENDER' not in os.environ
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'hasnain-sayeds-portfolio.onrender.com',  # Your Render domain
+    'hasnain-sayeds-portfolio.onrender.com',  # Ensure this matches your Render domain
 ]
 
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.static',
     
     'base',
 ]
@@ -122,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles')  # Point to your existing staticfiles directory
+    os.path.join(BASE_DIR, 'static')  # Updated to match the new folder name
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
 
