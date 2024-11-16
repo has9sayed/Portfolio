@@ -1,0 +1,1157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasnain Habib Sayed - Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{% static '/css/main.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #3eb398, #3294a1);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            color: #fff;
+        }
+        
+        .card {
+            background: rgba(13, 17, 23, 0.737);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .card:hover {
+            background: rgba(13, 17, 23, 0.75);
+        }
+        
+        #profile-pic {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid rgb(72, 255, 221);
+        }
+        
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #fff;
+            transform: scale(1.2);
+        }
+        
+        h4 {
+            color: rgba(255, 255, 255, 1);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        p, li {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+        
+        a {
+            color: #00b4ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #00ff9d;
+            text-decoration: none;
+        }
+        
+        .container {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        
+        /* Add subtle animation to cards */
+        .card {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Improve text contrast */
+        p, li {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+        
+        /* Enhance horizontal rules */
+        hr {
+            border-color: rgba(255, 255, 255, 0.1);
+            margin: 1rem 0;
+        }
+        
+        /* Enhance profile section */
+        #profile-wrapper {
+            background: rgba(13, 17, 23, 0.611);
+        }
+        
+        /* Add styles for icons */
+        .section-icon {
+            margin-right: 10px;
+            background: linear-gradient(135deg, #00b4ff, #00ff9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Optional: Add a subtle hover effect */
+        h4:hover .section-icon {
+            transform: scale(1.1);
+        }
+        
+        /* Typography and General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #00b4ff;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1rem;
+        }
+
+        /* List Styling */
+        ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        li {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Skills Section */
+        .skill-category {
+            font-weight: 600;
+            color: #00b4ff;
+            margin-right: 0.5rem;
+        }
+
+        .skill-items {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Links */
+        a {
+            color: #00b4ff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #00ff9d;
+            text-decoration: none;
+        }
+
+        /* Profile Section */
+        .profile-name {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 10px 0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .profile-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        /* Card Spacing */
+        .card-body {
+            padding: 1.8rem;
+        }
+
+        /* Timeline for Experience */
+        .timeline-date {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Highlight Text */
+        .highlight {
+            color: #00ff9d;
+            font-weight: 500;
+        }
+
+        /* Badge Style */
+        .badge-custom {
+            background: rgba(0, 180, 255, 0.1);
+            color: #00b4ff;
+            padding: 0.35em 0.65em;
+            border-radius: 6px;
+            font-size: 0.75em;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Updated Section Icon Styling */
+        .section-icon {
+            margin-right: 10px;
+            background: linear-gradient(135deg, #00b4ff, #00ff9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform 0.3s ease;
+        }
+
+        /* List Item Icons */
+        .fa-fw {
+            background: linear-gradient(135deg, #00b4ff, #00ff9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Contact Icons */
+        .contact-icon {
+            background: linear-gradient(135deg, #00b4ff, #00ff9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            width: 20px;
+            text-align: center;
+            margin-right: 8px;
+        }
+
+        /* Social Media Icons */
+        .social-icon {
+            background: linear-gradient(135deg, #00b4ff, #00ff9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Container spacing */
+        .container {
+            padding-top: 3rem;  /* Increased from 2rem */
+            padding-bottom: 3rem;
+        }
+
+        /* Row spacing */
+        .row {
+            margin-bottom: 2rem;  /* Consistent gap between rows */
+        }
+
+        /* Remove margin from last row */
+        .row:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Card body padding */
+        .card-body {
+            padding: 2rem;  /* Consistent internal padding */
+        }
+
+        /* Section headers */
+        h4 {
+            margin-bottom: 1.5rem;  /* Space between header and content */
+        }
+
+        /* Horizontal rule styling */
+        hr {
+            margin: 1.5rem 0;
+            opacity: 0.1;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+            border: 0;
+            height: 1px;
+        }
+
+        /* Remove <br> tags from your HTML and use these margins instead */
+        .section-gap {
+            margin-bottom: 2rem;
+        }
+
+        /* Make cards in the same row equal height */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;  /* Consistent gap between rows */
+        }
+
+        /* Make columns stretch to fill row height */
+        .col-md-6, .col-md-3, .col-md-9 {
+            display: flex;
+            margin-bottom: 2rem;  /* Gap between cards on mobile */
+        }
+
+        /* Make cards fill their column height */
+        .card {
+            width: 100%;  /* Ensure card fills column width */
+            margin-bottom: 0;  /* Remove default card margin */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body {
+            flex: 1;  /* Allow card body to stretch */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Remove margin from last row */
+        .row:last-child .col-md-6 {
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+            .col-md-6:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        /* Card height adjustments */
+        .card {
+            height: 100%;  /* Make card fill available height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body {
+            flex: 1;  /* Allow card body to grow */
+            padding: 2rem;
+        }
+
+        /* Skills section specific styling */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+            gap: 1.2rem;  /* Reduced gap between grid items */
+        }
+
+        .skill-category {
+            color: #00b4ff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;  /* Reduced margin */
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;  /* Reduced gap between tags */
+        }
+
+        .skill-tag {
+            background: rgba(0, 180, 255, 0.1);
+            padding: 0.35rem 0.7rem;  /* Slightly reduced padding */
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Optimize card spacing */
+        .card-body {
+            padding: 1.5rem;  /* Reduced padding */
+        }
+
+        h4 {
+            margin-bottom: 1rem;  /* Reduced margin */
+        }
+
+        hr {
+            margin: 0.8rem 0;  /* Reduced margin */
+        }
+
+        /* Make rows equal height */
+        .row {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .col-md-6 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Certification styling */
+        .cert-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+        }
+
+        .cert-item {
+            background: rgba(0, 180, 255, 0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(0, 180, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            background: rgba(0, 180, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .cert-title {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: #00b4ff;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-grade {
+            color: #00ff9d;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, #0091cc, #00cc7e);
+            border-radius: 8px;
+            color: #fff !important;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            color: #fff !important;
+            box-shadow: 0 5px 15px rgba(0, 180, 255, 0.3);
+        }
+
+        .project-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Add these styles */
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-content {
+            flex-grow: 1;  /* Takes up available space */
+        }
+
+        .project-description {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: rgba(0, 180, 255, 0.1);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #00b4ff;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-link-wrapper {
+            margin-top: auto;  /* Pushes button to bottom */
+            padding-top: 1rem;
+            display: flex;
+            justify-content: flex-end;  /* Aligns button to right */
+        }
+
+        .interest-item {
+            background: rgba(0, 180, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 180, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .interest-item:hover {
+            background: rgba(0, 180, 255, 0.15);
+            transform: translateX(5px);
+        }
+
+        .interest-title {
+            color: #00b4ff;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .interest-description {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-value {
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .contact-value a {
+            color: #00b4ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: #00ff9d;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about-card {
+            background: rgba(0, 180, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.2rem;
+            border: 1px solid rgba(0, 180, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            background: rgba(0, 180, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .about-title {
+            color: #00b4ff;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-text {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #00ff9d;
+            font-weight: 500;
+        }
+
+        .contact-icon-wrapper {
+            min-width: 40px;          /* Fixed width */
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 180, 255, 0.15);
+            border-radius: 10px;
+            display: inline-flex;     /* Changed to inline-flex */
+            align-items: center;
+            justify-content: center;
+            position: relative;       /* Added position relative */
+        }
+
+        .contact-icon {
+            position: absolute;       /* Absolute positioning */
+            left: 50%;               /* Center horizontally */
+            top: 50%;                /* Center vertically */
+            transform: translate(-50%, -50%); /* Perfect centering */
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #00b4ff, #00ff9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            width: 1.2rem;           /* Fixed width */
+            height: 1.2rem;          /* Fixed height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Base container padding */
+        .container {
+            padding-top: 2rem;  /* Reduced for mobile */
+            padding-bottom: 2rem;
+        }
+
+        /* Responsive grid adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            /* Adjust card padding for mobile */
+            .card-body {
+                padding: 1.2rem;
+            }
+
+            /* Skills grid for mobile */
+            .skills-container {
+                grid-template-columns: 1fr;  /* Single column on mobile */
+                gap: 1rem;
+            }
+
+            /* Certifications grid for mobile */
+            .cert-list {
+                grid-template-columns: 1fr;  /* Single column on mobile */
+                gap: 1rem;
+            }
+
+            /* Adjust spacing between sections */
+            .section-gap {
+                margin-bottom: 1.5rem;
+            }
+
+            /* Column spacing on mobile */
+            [class*="col-"] {
+                margin-bottom: 1.5rem;
+            }
+
+            [class*="col-"]:last-child {
+                margin-bottom: 0;
+            }
+
+            /* Row spacing on mobile */
+            .row {
+                margin-bottom: 1.5rem;
+            }
+
+            .row:last-child {
+                margin-bottom: 0;
+            }
+
+            /* Profile section adjustments */
+            #profile-pic {
+                width: 120px;  /* Slightly smaller on mobile */
+                height: 120px;
+            }
+
+            .profile-name {
+                font-size: 1.3rem;
+            }
+
+            /* Section headers */
+            h4 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            /* About cards spacing */
+            .about-content {
+                gap: 1rem;
+            }
+
+            .about-card {
+                padding: 1rem;
+            }
+
+            /* Contact items spacing */
+            .contact-item {
+                padding: 0.8rem;
+            }
+
+            /* Project description */
+            .project-description {
+                font-size: 0.9rem;
+            }
+
+            /* Tech tags wrapping */
+            .tech-tag {
+                margin-bottom: 0.4rem;
+            }
+        }
+
+        /* Additional mobile optimizations */
+        @media (max-width: 576px) {
+            .container {
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+            }
+
+            .card-body {
+                padding: 1rem;
+            }
+
+            .profile-name {
+                font-size: 1.2rem;
+            }
+
+            .profile-title {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- First Row: Profile and About -->
+        <div class="row">
+            <!-- Profile Section -->
+            <div class="col-md-3">
+                <div class="card card-body" id="profile-wrapper">
+                    <img id="profile-pic" src="{% static 'images/dp.jpg' %}" alt="Profile Picture">
+                    <h1 class="profile-name">Hasnain Habib Sayed</h1>
+                    <p class="profile-title">Aspiring Software Engineer & CSE Graduate</p>
+                    <p>A passionate developer crafting digital experiences through code.</p>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="col-md-9">
+                <div class="card card-body">
+                    <h4><i class="fa-solid fa-user section-icon"></i>About Me</h4>
+                    <hr>
+                    
+                    <div class="about-content">
+                        <div class="about-card">
+                            <div class="about-title">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                Education
+                            </div>
+                            <div class="about-text">
+                                Recent graduate from <span class="highlight">BRAC University</span> with a Bachelor's degree in Computer Science and Engineering. Completed with a CGPA of <span class="highlight">3.38</span> out of 4.00.
+                            </div>
+                        </div>
+
+                        <div class="about-card">
+                            <div class="about-title">
+                                <i class="fa-solid fa-laptop-code"></i>
+                                Professional Focus
+                            </div>
+                            <div class="about-text">
+                                Passionate about full-stack development with expertise in modern web technologies. Experienced in building responsive and user-friendly applications using <span class="highlight">React.js</span>, <span class="highlight">Node.js</span>, and various other frameworks.
+                            </div>
+                        </div>
+
+                        <div class="about-card">
+                            <div class="about-title">
+                                <i class="fa-solid fa-bullseye"></i>
+                                Career Goals
+                            </div>
+                            <div class="about-text">
+                                Seeking opportunities to contribute to innovative projects while continuously learning and growing as a developer. Particularly interested in creating impactful solutions that solve real-world problems.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-gap"></div>
+
+        <!-- Skills Section -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card card-body">
+                    <h4><i class="fa-solid fa-laptop-code section-icon"></i>Skills</h4>
+                    <hr>
+                    <div class="skills-container">
+                        <div>
+                            <div class="skill-category">Languages</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="skill-category">Frontend</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">React.js</span>
+                                <span class="skill-tag">Next.js</span>
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="skill-category">Backend</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Express</span>
+                                <span class="skill-tag">Django</span>
+                                <span class="skill-tag">FastAPI</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="skill-category">Databases</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">MongoDB</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="skill-category">Tools</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Postman</span>
+                                <span class="skill-tag">Figma</span>
+                                <span class="skill-tag">Adobe Illustrator</span>
+                                <span class="skill-tag">SmartPLS</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="skill-category">Version Control</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">GitHub</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="skill-category">Operating Systems</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Linux</span>
+                                <span class="skill-tag">Windows</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="col-md-4">
+                <div class="card card-body">
+                    <h4><i class="fa-solid fa-briefcase section-icon"></i>Experience</h4>
+                    <hr>
+                    <h5>Apprentice (IT Dept.)</h5>
+                    <div class="timeline-date">
+                        <i class="fa-regular fa-calendar"></i> 2020 – 2021
+                    </div>
+                    <p class="highlight">Robotics Club of BRAC University (ROBU)</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check fa-fw"></i>Designed graphics for club events</li>
+                        <li><i class="fa-solid fa-check fa-fw"></i>Collaborated on IT projects</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-gap"></div>
+
+        <!-- Projects Section -->
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card card-body">
+                    <div class="project-card">
+                        <h4><i class="fa-solid fa-rocket section-icon"></i>Projects</h4>
+                        <hr>
+                        
+                        <div class="project-content">
+                            <h5>Swappr - Course Swapping Platform</h5>
+                            <p class="project-description">
+                                A third-party platform that helps BRAC University students find potential course swap partners. Students can post their swap requests, browse available swaps, and connect with interested parties through the platform.
+                            </p>
+                            
+                            <div class="project-tech">
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                            </div>
+
+                            <ul>
+                                <li><i class="fa-solid fa-check fa-fw"></i> Created post system for swap requests</li>
+                                <li><i class="fa-solid fa-check fa-fw"></i> Implemented comment section for each post</li>
+                                <li><i class="fa-solid fa-check fa-fw"></i> Added user authentication and profiles</li>
+                                <li><i class="fa-solid fa-check fa-fw"></i> Built responsive UI for easy mobile access</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-link-wrapper">
+                            <a href="https://swappr-bracu.web.app" target="_blank" class="project-link">
+                                Check it out <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Section -->
+            <div class="col-md-7">
+                <div class="card card-body">
+                    <h4><i class="fa-solid fa-certificate section-icon"></i>Certifications</h4>
+                    <hr>
+                    <div class="cert-list">
+                        <div class="cert-item">
+                            <div class="cert-title">Advanced Learning Algorithms</div>
+                            <div class="cert-issuer">
+                                <i class="fa-solid fa-building-columns fa-fw"></i>
+                                DeepLearning.AI, Stanford University
+                            </div>
+                            <div class="cert-grade">
+                                <i class="fa-solid fa-star fa-fw"></i>
+                                Grade: 96.20%
+                            </div>
+                        </div>
+
+                        <div class="cert-item">
+                            <div class="cert-title">Supervised Machine Learning</div>
+                            <div class="cert-issuer">
+                                <i class="fa-solid fa-building-columns fa-fw"></i>
+                                DeepLearning.AI, Stanford University
+                            </div>
+                            <div class="cert-grade">
+                                <i class="fa-solid fa-star fa-fw"></i>
+                                Grade: 92.86%
+                            </div>
+                        </div>
+
+                        <div class="cert-item">
+                            <div class="cert-title">Unsupervised Learning & Reinforcement Learning</div>
+                            <div class="cert-issuer">
+                                <i class="fa-solid fa-building-columns fa-fw"></i>
+                                DeepLearning.AI, Stanford University
+                            </div>
+                            <div class="cert-grade">
+                                <i class="fa-solid fa-star fa-fw"></i>
+                                Grade: 99.40%
+                            </div>
+                        </div>
+
+                        <div class="cert-item">
+                            <div class="cert-title">Blockchain Basics</div>
+                            <div class="cert-issuer">
+                                <i class="fa-solid fa-building-columns fa-fw"></i>
+                                University at Buffalo
+                            </div>
+                            <div class="cert-grade">
+                                <i class="fa-solid fa-star fa-fw"></i>
+                                Grade: 100%
+                            </div>
+                        </div>
+
+                        <div class="cert-item">
+                            <div class="cert-title">Introduction to Cloud Computing</div>
+                            <div class="cert-issuer">
+                                <i class="fa-solid fa-cloud fa-fw"></i>
+                                IBM
+                            </div>
+                            <div class="cert-grade">
+                                <i class="fa-solid fa-star fa-fw"></i>
+                                Grade: 98%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-gap"></div>
+
+        <!-- Interests Section -->
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card card-body">
+                    <h4><i class="fa-solid fa-gamepad section-icon"></i>Interests</h4>
+                    <hr>
+                    
+                    <div class="interest-item">
+                        <div class="interest-title">
+                            <i class="fa-solid fa-gamepad"></i>
+                            Game Development
+                        </div>
+                        <div class="interest-description">
+                            Exploring game development with Unity, focusing on creating interactive experiences and learning game mechanics implementation.
+                        </div>
+                    </div>
+
+                    <div class="interest-item">
+                        <div class="interest-title">
+                            <i class="fa-solid fa-code-branch"></i>
+                            Open Source
+                        </div>
+                        <div class="interest-description">
+                            Contributing to open-source projects, collaborating with developers worldwide, and learning from the community's best practices.
+                        </div>
+                    </div>
+
+                    <div class="interest-item">
+                        <div class="interest-title">
+                            <i class="fa-solid fa-robot"></i>
+                            AI & Machine Learning
+                        </div>
+                        <div class="interest-description">
+                            Exploring machine learning algorithms and their applications in real-world problems through hands-on projects.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="col-md-5">
+                <div class="card card-body">
+                    <h4><i class="fa-solid fa-paper-plane section-icon"></i>Get in Touch</h4>
+                    <hr>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon-wrapper">
+                            <i class="fa-solid fa-envelope contact-icon"></i>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">
+                                <a href="mailto:hasnain.habib.sayed@gmail.com">hasnain.habib.sayed@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-wrapper">
+                            <i class="fa-solid fa-phone contact-icon"></i>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value">+880 1835 491 586</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-wrapper">
+                            <i class="fa-brands fa-github contact-icon"></i>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">GitHub</div>
+                            <div class="contact-value">
+                                <a href="https://github.com/has9sayed" target="_blank">@has9sayed</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-wrapper">
+                            <i class="fa-brands fa-linkedin contact-icon"></i>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">LinkedIn</div>
+                            <div class="contact-value">
+                                <a href="https://linkedin.com/in/has9sayed" target="_blank">Hasnain Habib Sayed</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
