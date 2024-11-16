@@ -26,8 +26,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'your-default-secret-key')
 DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = [
-    '*',  # For development
-    '.onrender.com',  # For your Render domain
+    'localhost',
+    '127.0.0.1',
+    'hasnain-sayeds-portfolio.onrender.com',  # Your Render domain
 ]
 
 
@@ -119,10 +120,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/staticfiles/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles')
+    os.path.join(BASE_DIR, 'base/static'),
 ]
 
 # Simplified static file serving
