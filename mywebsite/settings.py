@@ -138,3 +138,31 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 if os.environ.get('RENDER'):
     DEBUG = False
     ALLOWED_HOSTS = ['*.onrender.com', 'localhost']
+
+# Add these settings after INSTALLED_APPS
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this for static files
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+# Static files configuration
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+# Add Whitenoise Storage
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Add CSRF settings
+CSRF_TRUSTED_ORIGINS = [
+    'https://hasnain-sayeds-portfolio.onrender.com'
+]
